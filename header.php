@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<main>
-    <a href="index.php" class="centered">All Recipes</a>
-    <a href="add-recipe.php" class="centered">Add a new recipe</a>
+<nav>
+    <div class="container">
+        <div class="col-10">
+            <a href="index.php">SBD</a>
+        </div>
+        <div class="col-2">
+            <a href="" class="login">Log In/Register</a>
+        </div>
+    </div>
+</nav>
