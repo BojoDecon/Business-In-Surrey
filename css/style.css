@@ -92,22 +92,27 @@ h2 span {
     width: 100%;
 }
 
-input[type=button], input[type=submit] {
-    background-color: #F6F6F6;
+input[type=radio], input[type=submit] {
+    background: #F6F6F6;
+    display: inline-block;
 }
 
-input[type=button]:focus, input[type=submit]:focus {
-    background-color: #3AB592;
+input[type=radio]:focus, input[type=submit]:focus {
+    background: #3AB592;
 }
-
-input[type=button]:focus, input[type=submit]:focus {
-    background-color: #3AB592;
-}
-
 
 .button.ghost {
     background: transparent;
     color: #69e;
+}
+
+label {
+    display: inline-block;
+    font-weight: 600;
+}
+
+.search-input {
+    background: #3AB592;
 }
 
 a.button:hover, a.button:focus {

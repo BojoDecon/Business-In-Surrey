@@ -2,6 +2,16 @@
 require('header.php');
 ?>
 
+<script>
+	function serviceFocused() {
+		document.getElementById("search_input").placeholder = "Service - input keywords. i.e. \"pizza\"";
+	}
+
+	function nearbyFocused() {
+		document.getElementById("search_input").placeholder = "Nearby - input address.";
+	}
+</script>
+
 <main>
 	<div class="banner">
 		<div class="container">
@@ -23,10 +33,16 @@ require('header.php');
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form action="index.php" method="post" class="container">
-					<input type="button" name="search_type" value="Service" autofocus>
-					<input type="button" name="search_type" value="Nearby">
+					<div class="col-2" class="search-input">
+						<input type="radio" value="Service" name="search_type" id="service" onfocus="serviceFocused()" autofocus>
+						<label for="service">Service</label>
+					</div>
+					<div class="col-2" class="search-input">
+						<input type="radio" value="Nearby" name="search_type" id="nearby" onfocus="nearbyFocused()">
+						<label for="nearby">Nearby</label>
+					</div>
 					<div class="col-10"></div>
-					<input type="text" name="search_input" class="col-10" placeholder="<?php if($_POST["search_type"] == "Service") { echo "Input keywords. i.e. \"pizza\""; }?>">
+					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
 				</form>
 			</div>
