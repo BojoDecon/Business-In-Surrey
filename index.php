@@ -33,14 +33,8 @@ require('header.php');
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form action="index.php" method="post" class="container">
-					<div class="col-2" class="search-input">
-						<input type="radio" value="Service" name="search_type" id="service" onfocus="serviceFocused()" autofocus>
-						<label for="service">Service</label>
-					</div>
-					<div class="col-2" class="search-input">
-						<input type="radio" value="Nearby" name="search_type" id="nearby" onfocus="nearbyFocused()">
-						<label for="nearby">Nearby</label>
-					</div>
+					<input type="button" value="Service" id="service" onfocus="serviceFocused()" autofocus>
+					<input type="button" value="Nearby" id="nearby" onfocus="nearbyFocused()">
 					<div class="col-10"></div>
 					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
