@@ -24,8 +24,8 @@ nav a:hover {
     color: black;
 }
 
-a:visited { 
-    color: black; 
+a:visited {
+    color: black;
 }
 
 a:hover {
@@ -252,7 +252,7 @@ nav.main-nav .mobile {
     width: 70%;
     display: block;
     margin: auto;
-    margin-bottom: 1rem; 
+    margin-bottom: 1rem;
 }
 
 .image-gallery {
@@ -266,8 +266,8 @@ nav.main-nav .mobile {
 
 .image-gallery .image-thumbnails img:hover {
     transform: scale(1.02);
-    transition-property: transform; 
-    transition-duration: 0.1s; 
+    transition-property: transform;
+    transition-duration: 0.1s;
     transition-timing-function: ease-in-out;
 }
 
@@ -632,8 +632,8 @@ h2.top-brands-title {
 
 .brand:hover{
     transform: scale(1.02);
-	transition-property: transform; 
-	transition-duration: 0.3s; 
+	transition-property: transform;
+	transition-duration: 0.3s;
 	transition-timing-function: ease-out;
 }
 
@@ -676,8 +676,8 @@ h2.product-list-title {
 
 .single-product-container:hover img{
     transform: scale(1.02);
-	transition-property: transform; 
-	transition-duration: 0.3s; 
+	transition-property: transform;
+	transition-duration: 0.3s;
 	transition-timing-function: ease-in-out;
 }
 
@@ -811,7 +811,7 @@ p.single-product-price {
 .reviews-date {
     display: inline;
     float: right;
-    font-size: 1rem; 
+    font-size: 1rem;
 }
 
 .reviews-header {
@@ -1065,12 +1065,12 @@ p.single-product-price {
 .feature-6 .feature-title {
     width: 100%;
     margin-right: 2rem;
-}   
+}
 
 .feature-6 .feature-description {
     position: relative;
     top: 0.5rem;
-}   
+}
 
 
 /* SIDE FILTER FOR PRODUCT LIST/GRID PAGE */
@@ -1181,13 +1181,13 @@ p.single-product-price {
 }
 
 .drop-btn p {
-    position: relative; 
+    position: relative;
     top: 0.1rem;
     font-size: 0.9rem;
 }
 
 .drop-btn ion-icon {
-    position: relative; 
+    position: relative;
     top: 0.1rem;
     font-size: 0.9rem;
 }
@@ -1435,7 +1435,7 @@ p.single-product-price {
 
 .return-to-top {
     position: fixed;
-    font-size: 2rem; 
+    font-size: 2rem;
     bottom: 0rem;
     right: 0rem;
     border-radius: 1rem;
@@ -1478,7 +1478,7 @@ p.single-product-price {
         position: relative;
         margin: auto;
     }
-}   
+}
 
 @media  all and (max-width: 1050px) {
     .review-element:not(.active){
@@ -1539,7 +1539,7 @@ p.single-product-price {
         position: static;
         width: 80%;
         padding-top: 4%;
-        padding-bottom: 6%; 
+        padding-bottom: 6%;
     }
 
     .feature-content-container-background {

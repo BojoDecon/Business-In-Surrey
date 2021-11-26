@@ -16,7 +16,7 @@
             <a href="index.php">SBD</a>
         </div>
         <div class="col-2">
-            <a href="" class="login">Log In/Register</a>
+            <a href="login.php" class="login">Log In/Register</a>
         </div>
     </div>
 </nav>
