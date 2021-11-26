@@ -4,11 +4,28 @@ require('header.php');
 
 <script>
 	function serviceFocused() {
+		var service = document.getElementById("service");
+		service.classList.add("active");
+		var nearby = document.getElementById("nearby");
+		nearby.classList.remove("active");
 		document.getElementById("search_input").placeholder = "Service - input keywords. i.e. \"pizza\"";
+		
+		var advSettingsShow = document.getElementById("advanced-settings-show");
+  		advSettingsShow.classList.remove("hidden");
 	}
 
 	function nearbyFocused() {
+		var service = document.getElementById("service");
+		service.classList.remove("active");
+		var nearby = document.getElementById("nearby");
+		nearby.classList.add("active");
+		var advSettings = document.getElementById("advanced-settings");
 		document.getElementById("search_input").placeholder = "Nearby - input address.";
+		
+		var advSettings = document.getElementById("advanced-settings");
+  		advSettings.classList.add("hidden");
+  		var advSettingsShow = document.getElementById("advanced-settings-show");
+  		advSettingsShow.classList.add("hidden");
 	}
 
 	function showHidden() {
@@ -16,6 +33,13 @@ require('header.php');
   		advSettings.classList.remove("hidden");
   		var advSettingsShow = document.getElementById("advanced-settings-show");
   		advSettingsShow.classList.add("hidden");
+	}
+
+	function hideHidden() {
+		var advSettings = document.getElementById("advanced-settings");
+  		advSettings.classList.add("hidden");
+  		var advSettingsShow = document.getElementById("advanced-settings-show");
+  		advSettingsShow.classList.remove("hidden");
 	}
 </script>
 
@@ -46,12 +70,23 @@ require('header.php');
 					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
 					<a href="#" class="col-3 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
-					<div class="hidden col-12" id="advanced-settings">
-						<a href="#" class="col-12 advanced" onclick="showHidden()" id="advanced-settings-hide">Advanced Search Settings</a>
-						<label>Town Centre</label>
-						<select>
-							
-						</select>
+					<div class="hidden col-12 container gapped" id="advanced-settings">
+						<div class="col-3 advanced">
+							<label>Town Centre Code</label>
+							<input list="town-centers" name="town-center">
+							<datalist id="town-centers">
+								<option value="">
+							</datalist>
+						</div>
+						<div class="col-3 advanced">
+							<label>Road</label>
+							<input list="roads" name="road">
+							<datalist id="roads">
+								<option value="">
+							</datalist>
+						</div>
+
+						<a href="#" class="col-12 advanced" onclick="hideHidden()" id="advanced-settings-hide">Hide</a>
 					</div>
 				</form>
 			</div>
