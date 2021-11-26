@@ -4,7 +4,7 @@ require('header.php');
 
 <main>
   <div class="register-page">
-    <div class="container">
+   <div class="container">
       <div class="col-6">
         <div class="col-12">
           <h1>Create an account</h1>
@@ -23,6 +23,7 @@ require('header.php');
         <h2>Appreciate you joining us today!</h2>
         <p>Gain access to personalized bookmarks and a diverse community. Comment and Rate.</p>
       </div>
+    </div>
   </div>
 </main>
 

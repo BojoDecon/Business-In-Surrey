@@ -134,8 +134,8 @@ input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, in
   margin-right: 30rem;
   margin-left: 30rem;
   background-color: #F9FAF9;
-  padding: 2.5rem;
-  padding-bottom: 5rem;
+  padding: 2rem;
+  padding-bottom: 4.5rem;
 }
 
 .register-page h1 {
@@ -153,6 +153,33 @@ input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, in
   color: black;
 }
 /* ///////////// */
+
+/* Member-Page */
+.member-page {
+  margin-top: 10rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  background-color: #F9FAF9;
+  padding: 2rem;
+  padding-bottom: 30rem;
+}
+
+.member-page h1 {
+  font-size: 1.25rem;
+  color: black;
+}
+
+.member-page h2, h3 {
+  font-size: 0.85rem;
+  color: grey;
+}
+
+.member-page p {
+  font-size: 0.85rem;
+  color: black;
+}
+
+/* /////////// */
 
 /*old css code*/
 
