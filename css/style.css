@@ -97,13 +97,25 @@ input[type=button], input[type=submit] {
     display: inline-block;
 }
 
-
-
 input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, input[type=submit]:hover {
     background: #3AB592;
 }
 
+/* Login-Page */
+.login-page {
+  margin-top: 10rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  background-color: #F9FAF9;
+  padding: 2.5rem;
+  padding-bottom: 5rem;
+}
 
+span a {
+  text-decoration: none;
+  color: black;
+}
+/* ///////// */
 
 /*old css code*/
 
