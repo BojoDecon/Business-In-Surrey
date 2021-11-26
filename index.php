@@ -10,6 +10,10 @@ require('header.php');
 	function nearbyFocused() {
 		document.getElementById("search_input").placeholder = "Nearby - input address.";
 	}
+
+	function showHidden() {
+		
+	}
 </script>
 
 <main>
@@ -38,6 +42,7 @@ require('header.php');
 					<div class="col-10"></div>
 					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
+					<a href="" class="col-3 advanced" onclick="showHidden()">Advanced Search Settings</a>
 				</form>
 			</div>
 			<div class="col-2"></div>
