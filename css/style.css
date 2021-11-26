@@ -107,15 +107,52 @@ input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, in
   margin-right: 30rem;
   margin-left: 30rem;
   background-color: #F9FAF9;
+  padding: 2rem;
+  padding-bottom: 4.5rem;
+}
+
+.login-page a {
+  text-decoration: none;
+  color: black;
+}
+
+.login-page h1 {
+  font-size: 1.25rem;
+  color: black;
+}
+
+.login-page h2 {
+  font-size: 0.85rem;
+  color: grey;
+}
+
+/* ///////// */
+
+/* Register-Page */
+.register-page {
+  margin-top: 10rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  background-color: #F9FAF9;
   padding: 2.5rem;
   padding-bottom: 5rem;
 }
 
-span a {
-  text-decoration: none;
+.register-page h1 {
+  font-size: 1.25rem;
   color: black;
 }
-/* ///////// */
+
+.register-page h2, h3 {
+  font-size: 0.85rem;
+  color: grey;
+}
+
+.register-page p {
+  font-size: 0.85rem;
+  color: black;
+}
+/* ///////////// */
 
 /*old css code*/
 
