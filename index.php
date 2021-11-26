@@ -12,7 +12,10 @@ require('header.php');
 	}
 
 	function showHidden() {
-		
+		var advSettings = document.getElementById("advanced-settings");
+  		advSettings.classList.remove("hidden");
+  		var advSettingsShow = document.getElementById("advanced-settings-show");
+  		advSettingsShow.classList.add("hidden");
 	}
 </script>
 
@@ -42,7 +45,14 @@ require('header.php');
 					<div class="col-10"></div>
 					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
-					<a href="" class="col-3 advanced" onclick="showHidden()">Advanced Search Settings</a>
+					<a href="#" class="col-3 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
+					<div class="hidden col-12" id="advanced-settings">
+						<a href="#" class="col-12 advanced" onclick="showHidden()" id="advanced-settings-hide">Advanced Search Settings</a>
+						<label>Town Centre</label>
+						<select>
+							
+						</select>
+					</div>
 				</form>
 			</div>
 			<div class="col-2"></div>

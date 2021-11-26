@@ -102,6 +102,14 @@ input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, in
     background: #3AB592;
 }
 
+.hidden {
+    display: none;
+}
+
+.advanced {
+    margin-top: 1rem;
+}
+
 /* Login-Page */
 .login-page {
   margin-top: 10rem;
@@ -125,10 +133,6 @@ input[type=button]:focus, input[type=submit]:focus, input[type=button]:hover, in
 .login-page h2 {
   font-size: 0.85rem;
   color: grey;
-}
-
-.advanced {
-    margin-top: 1rem;
 }
 
 /* ///////// */
