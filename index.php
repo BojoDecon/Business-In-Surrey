@@ -52,7 +52,7 @@ require('header.php');
 			</div>
 			<div class="col-6">
 				<h1>Surrey's business depository of all things local.</h1>
-				<h2>Support local and <span>Discover.</span></h2>
+				<h3>Support local and <span>Discover.</span></h3>
 
 			</div>
 			<div class="col-2"></div>
@@ -97,7 +97,9 @@ require('header.php');
 	<div class="business-grid">
 		<div class="container">
 			<?php
-				echo "<h2>Results</h2>";
+				if(isset($_POST['search_btn'])) {
+					echo "<h2>Results</h2>";
+				}
 			?>
 		</div>
 	</div>
