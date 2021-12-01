@@ -51,6 +51,7 @@ img {
 
 h1, h2 {
     font-weight: normal;
+    color: black;
 }
 
 h1 {
@@ -58,7 +59,7 @@ h1 {
     font-weight: 600;
 }
 
-h2 {
+h3 {
     font-size: 1.25rem;
     color: grey;
 }
@@ -68,11 +69,11 @@ h2 {
     margin-bottom: 0;
 }
 
-.banner h2 {
+.banner h3 {
     margin: 0.5rem 0;
 }
 
-h2 span {
+h3 span {
     color: black;
 }
 
