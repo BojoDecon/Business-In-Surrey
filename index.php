@@ -71,20 +71,17 @@ require('header.php');
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
 					<a href="#" class="col-3 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
 					<div class="hidden col-12 container gapped" id="advanced-settings">
-						<div class="col-3 advanced">
-							<label>Town Centre Code</label>
-							<input list="town-centers" name="town-center">
-							<datalist id="town-centers">
-								<option value="">
-							</datalist>
-						</div>
-						<div class="col-3 advanced">
-							<label>Road</label>
-							<input list="roads" name="road">
-							<datalist id="roads">
-								<option value="">
-							</datalist>
-						</div>
+						<label class="col-3 advanced">Town Centre Code</label>
+						<label class="col-3 advanced">Road</label>
+						<div class="col-6"></div>
+						<input list="town-centers" name="town-center" class="col-3">
+						<datalist id="town-centers">
+							<option value="">
+						</datalist>
+						<input list="roads" name="road" class="col-3">
+						<datalist id="roads">
+							<option value="">
+						</datalist>
 
 						<a href="#" class="col-12 advanced" onclick="hideHidden()" id="advanced-settings-hide">Hide</a>
 					</div>
@@ -94,14 +91,15 @@ require('header.php');
 		</div>
 	</div>
 
-	<div class="business-grid">
-		<div class="container">
-			<?php
-				if(isset($_POST['search_btn'])) {
-					echo "<h2>Results</h2>";
+	<div class="business-grid container">
+		<?php
+			if(isset($_POST['search_btn'])) {
+				echo "<h2 class=\"col-12\">Results:</h2>";
+				if(empty($_POST['search_input'])) {
+					echo "<p class=\"col-12\">No results found.</p>";
 				}
-			?>
-		</div>
+			}
+		?>
 	</div>
 </main>
 

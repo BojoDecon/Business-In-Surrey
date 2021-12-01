@@ -25,6 +25,10 @@ nav a:hover {
     color: black;
 }
 
+a {
+    color: black;
+}
+
 a:visited {
     color: black;
 }
@@ -122,6 +126,11 @@ select {
     background: #3AB592 !important;
 }
 
+.business-grid * {
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+}
+
 /* Login-Page */
 .login-page {
   margin-top: 10rem;
@@ -142,7 +151,7 @@ select {
   color: black;
 }
 
-.login-page h3 {
+.login-page h2 {
   font-size: 0.85rem;
   color: grey;
 }
@@ -164,7 +173,7 @@ select {
   color: black;
 }
 
-.register-page h2, h3 {
+.register-page h2 {
   font-size: 0.85rem;
   color: grey;
 }
