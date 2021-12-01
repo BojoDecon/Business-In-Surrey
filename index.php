@@ -94,8 +94,12 @@ require('header.php');
 		</div>
 	</div>
 
-	<div class="search_results">
-		
+	<div class="business-grid">
+		<div class="container">
+			<?php
+				echo "<h2>Results</h2>";
+			?>
+		</div>
 	</div>
 </main>
 
