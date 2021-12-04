@@ -131,6 +131,17 @@ select {
     margin-bottom: 0rem;
 }
 
+.business-grid input[type=button] {
+    width: auto !important;
+}
+
+.horizontal-centre {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
 /* Login-Page */
 .login-page {
   margin-top: 10rem;

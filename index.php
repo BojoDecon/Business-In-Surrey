@@ -98,6 +98,22 @@ require('header.php');
 				if(empty($_POST['search_input'])) {
 					echo "<p class=\"col-12\">No results found.</p>";
 				}
+
+				$query = "SELECT business_licences_2021.ID FROM business_licences_2021";
+
+				$result = $connection->query($query);
+
+
+
+				$pageCount = @$result->num_rows;
+
+				echo "<form class=\"col-12\"><div class=\"horizontal-centre\">";
+				if($pageCount != 0) {
+					for($i = 1; $i <= $pageCount/20; $i++) {
+						echo "<input type=\"button\" value=\"".$i."\">";
+					}
+				}
+				echo "</div></form>";
 			}
 		?>
 	</div>
