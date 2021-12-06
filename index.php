@@ -99,13 +99,16 @@ require('header.php');
 					echo "<p class=\"col-12\">No results found.</p>";
 				}
 
-				$query = "SELECT business_licences_2021.ID FROM business_licences_2021";
+				$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
+				echo $query;
+
 
 				$result = $connection->query($query);
 
 
 
 				$pageCount = @$result->num_rows;
+				echo $pageCount;
 
 				echo "<form class=\"col-12\"><div class=\"horizontal-centre\">";
 				if($pageCount != 0) {
