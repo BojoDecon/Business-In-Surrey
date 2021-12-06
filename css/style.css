@@ -63,8 +63,12 @@ h1 {
 }
 
 h3 {
-    font-size: 1.25rem;
     color: grey;
+}
+
+.banner h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
 }
 
 .banner h1 {
@@ -131,8 +135,16 @@ select {
     margin-bottom: 0rem;
 }
 
+.business-grid {
+    column-gap: 2rem;
+}
+
 .business-grid input[type=button] {
     width: auto !important;
+}
+
+.parent {
+    position: relative;
 }
 
 .horizontal-centre {
@@ -140,6 +152,41 @@ select {
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
+}
+
+.business-grid h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.business-cell {
+    background: #F9FAF9;
+    padding: 2rem;
+    position: relative;
+}
+
+.business-cell h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.business-cell input {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}
+
+.business-cell h3:last-of-type {
+    margin-bottom: 3rem;
+}
+
+.business-cell input {
+    background: #3AB592;
+}
+
+.business-cell input:hover {
+    cursor: pointer;
 }
 
 /* Login-Page */

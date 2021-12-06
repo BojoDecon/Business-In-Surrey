@@ -67,7 +67,7 @@ require('header.php');
 					<input type="button" value="Service" id="service" onfocus="serviceFocused()" autofocus>
 					<input type="button" value="Nearby" id="nearby" onfocus="nearbyFocused()">
 					<div class="col-10"></div>
-					<input type="text" name="search_input" id="search_input" class="col-10" placholder="">
+					<input type="text" name="search_input" id="search_input" class="col-10" placholder="" value="<?php if(isset($_POST['search_input'])) echo $_POST['search_input'] ?>">
 					<input type="submit" name="search_btn" value="Discover" class="col-2">
 					<a href="#" class="col-3 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
 					<div class="hidden col-12 container gapped" id="advanced-settings">
@@ -94,29 +94,46 @@ require('header.php');
 	<div class="business-grid container">
 		<?php
 			if(isset($_POST['search_btn'])) {
-				echo "<h2 class=\"col-12\">Results:</h2>";
+				echo "<h2 class=\"col-12\">Results</h2>";
 				if(empty($_POST['search_input'])) {
 					echo "<p class=\"col-12\">No results found.</p>";
-				}
+				} else {
+					echo "<h3 class=\"col-12\">for \"" . $_POST['search_input'] . "\"</h3>";
+					$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
 
-				$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
-				echo $query;
+					$result = $connection->query($query);
 
-
-				$result = $connection->query($query);
-
-
-
-				$pageCount = @$result->num_rows;
-				echo $pageCount;
-
-				echo "<form class=\"col-12\"><div class=\"horizontal-centre\">";
-				if($pageCount != 0) {
-					for($i = 1; $i <= $pageCount/20; $i++) {
-						echo "<input type=\"button\" value=\"".$i."\">";
+					while($row = $result->fetch_assoc()) {
+						echo "<div class=\"business-cell col-5\">";
+						echo "<h2>" . $row["businessName"] . "</h2>";
+						if(!empty($row["houseNumber"])) {
+							echo "<h3>" . $row["houseNumber"] . " - ";
+						} else {
+							echo "<h3>";
+						}
+						echo $row["road"];
+						if(!empty($row["unit"])) {
+							echo ", #" . $row["unit"] . "</h3>"; 
+						} else {
+							echo "</h3>";
+						}
+						echo "<h3>" . $row["postalCode"] . "</h3>";
+						echo "<a href=\"results.php\"><input type=\"button\" value=\"View Now\"></a>";
+						echo "</div>";
 					}
+
+					$pageCount = @$result->num_rows;
+
+					echo "<div class=\"col-12 parent\"><div class=\"horizontal-centre\">";
+					if($pageCount != 0) {
+						for($i = 1; $i <= $pageCount/20; $i++) {
+							echo "<input type=\"button\" name=\"button" . $i . "\" value=\"".$i."\">";
+						}
+					}
+					echo "</div></div>";
+
+
 				}
-				echo "</div></form>";
 			}
 		?>
 	</div>
