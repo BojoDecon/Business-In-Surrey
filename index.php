@@ -118,7 +118,7 @@ require('header.php');
 							echo "</h3>";
 						}
 						echo "<h3>" . $row["postalCode"] . "</h3>";
-						echo "<a href=\"results.php\"><input type=\"button\" value=\"View Now\"></a>";
+						echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['r'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
 						echo "</div>";
 					}
 
