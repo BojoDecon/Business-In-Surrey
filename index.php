@@ -1,5 +1,7 @@
 <?php
 require('header.php');
+include('functions.php');
+no_SSL();
 ?>
 
 <script>
@@ -9,7 +11,7 @@ require('header.php');
 		var nearby = document.getElementById("nearby");
 		nearby.classList.remove("active");
 		document.getElementById("search_input").placeholder = "Service - input keywords. i.e. \"pizza\"";
-		
+
 		var advSettingsShow = document.getElementById("advanced-settings-show");
   		advSettingsShow.classList.remove("hidden");
 	}
@@ -21,7 +23,7 @@ require('header.php');
 		nearby.classList.add("active");
 		var advSettings = document.getElementById("advanced-settings");
 		document.getElementById("search_input").placeholder = "Nearby - input address.";
-		
+
 		var advSettings = document.getElementById("advanced-settings");
   		advSettings.classList.add("hidden");
   		var advSettingsShow = document.getElementById("advanced-settings-show");
@@ -103,7 +105,7 @@ require('header.php');
 				echo $query;
 
 
-				$result = $connection->query($query);
+				$result = $db->query($query);
 
 
 

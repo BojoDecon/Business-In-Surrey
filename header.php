@@ -1,15 +1,5 @@
-<?php
-    $connection = @mysqli_connect("localhost", "root", "", "business_in_surrey");
-    // Test if connection succeeded
-    if(mysqli_connect_errno()) {
-        die("Database connection failed: " . mysqli_connect_error() . " (" . mysqli_connect_errno() . ")"
-        );
-    }
-?>
-
 <!DOCTYPE html>
 <html>
-
 <body>
 
 <head>
@@ -25,8 +15,13 @@
             <a href="index.php">SBD</a>
         </div>
         <div class="col-2">
-            <a href="login.php" class="login">Log In/Register</a>
+          <?php
+          if (isset($_SESSION['valid_user']))
+          	echo "<a class=\"logout\"  href=\"logout.php\">Sign out</a>";
+          else
+          	echo "<a class=\"login\" href=\"login.php\">Log In</a>";
+          ?>
+          <!-- <a href="login.php" class="login">Log In/Register</a> -->
         </div>
     </div>
 </nav>
-
