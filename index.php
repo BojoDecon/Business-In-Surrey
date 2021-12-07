@@ -120,7 +120,7 @@ no_SSL();
 							echo "</h3>";
 						}
 						echo "<h3>" . $row["postalCode"] . "</h3>";
-						echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['r'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
+						echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['road'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
 						echo "</div>";
 					}
 
