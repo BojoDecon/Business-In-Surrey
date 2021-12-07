@@ -103,7 +103,7 @@ no_SSL();
 					echo "<h3 class=\"col-12\">for \"" . $_POST['search_input'] . "\"</h3>";
 					$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
 
-					$result = $connection->query($query);
+					$result = $db->query($query);
 
 					while($row = $result->fetch_assoc()) {
 						echo "<div class=\"business-cell col-5\">";
