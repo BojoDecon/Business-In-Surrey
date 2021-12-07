@@ -15,13 +15,14 @@
             <a href="index.php">SBD</a>
         </div>
         <div class="col-2">
-          <?php
-          if (isset($_SESSION['valid_user']))
-          	echo "<a class=\"logout\"  href=\"logout.php\">Sign out</a>";
-          else
-          	echo "<a class=\"login\" href=\"login.php\">Log In</a>";
-          ?>
-          <!-- <a href="login.php" class="login">Log In/Register</a> -->
+            <?php
+                $connection = @mysqli_connect("localhost", "root", "", "business_in_surrey");
+                if (isset($_SESSION['valid_user']))
+              	echo "<a class=\"logout\"  href=\"logout.php\">Sign out</a>";
+                else
+              	echo "<a class=\"login\" href=\"login.php\">Log In</a>";
+            ?>
+            <!-- <a href="login.php" class="login">Log In/Register</a> -->
         </div>
     </div>
 </nav>
