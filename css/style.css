@@ -46,6 +46,15 @@ a:hover {
     transform: translate(0, -50%);
 }
 
+.logout {
+  float: right;
+  font-size: 1.2rem;
+  font-weight: normal;
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
 img {
     max-width: 100%;
     width: 100%;
@@ -286,5 +295,5 @@ input:focus, textarea:focus, select:focus {
 /* Results Page */
 
 .business-details {
-    
+
 }

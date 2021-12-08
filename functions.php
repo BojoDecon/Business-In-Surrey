@@ -1,4 +1,16 @@
 <?php
+// CREATE SESSION
+session_start();
+$db = connect('localhost', 'root', '', 'business_in_surrey');
+
+// if(!empty($_SESSION['valid_user']))  {
+//     $current_user = $_SESSION['valid_user'];
+// }
+
+function is_logged_in() {
+	return isset($_SESSION['valid_user']);
+}
+
 // SECURITY
 function no_SSL() {
 	if(isset($_SERVER['HTTPS']) &&  $_SERVER['HTTPS']== "on") {
@@ -13,18 +25,6 @@ function require_SSL() {
 			$_SERVER['REQUEST_URI']);
 		exit();
 	}
-}
-
-// CREATE SESSION
-session_start();
-$db = connect('localhost', 'root', '', 'business_in_surrey');
-
-if(!empty($_SESSION['valid_user']))  {
-    $current_user = $_SESSION['valid_user'];
-}
-
-function is_logged_in() {
-	return isset($_SESSION['valid_user']);
 }
 
 // REDIRECT
@@ -44,5 +44,12 @@ function connect($dbhost, $dbuser, $dbpass, $dbname) {
       );
   }
   return $connection;
+}
+
+function sanitizeInput($var) {
+    $var = mysqli_real_escape_string($_SESSION['connection'], $var);
+    $var = htmlentities($var);
+    $var = strip_tags($var);
+    return $var;
 }
 ?>

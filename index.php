@@ -1,6 +1,6 @@
 <?php
-require('header.php');
 include('functions.php');
+require('header.php');
 no_SSL();
 ?>
 
@@ -30,7 +30,6 @@ no_SSL();
 			<div class="col-6">
 				<h1>Surrey's business depository of all things local.</h1>
 				<h3>Support local and <span>Discover.</span></h3>
-
 			</div>
 			<div class="col-2"></div>
 		</div>
@@ -66,7 +65,7 @@ no_SSL();
 	</div>
 
 	<div class="business-grid container">
-		<h2 class="col-12">Our database</h2> 
+		<h2 class="col-12">Our database</h2>
 		<?php
 			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 LIMIT 200";
 
@@ -114,11 +113,11 @@ no_SSL();
 			if($pageCount != 0) {
 				echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
 				for($i = 1; $i <= $pageCount/20; $i++) {
-					
+
 					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
 					if(isset($_POST["button" . $i])) {
 						echo " class=\"active\"";
-					} 
+					}
 					echo ">";
 				}
 				echo "</form>";

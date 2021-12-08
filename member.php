@@ -1,4 +1,5 @@
 <?php
+include('functions.php');
 require('header.php');
 ?>
 
@@ -7,7 +8,7 @@ require('header.php');
     <div class="container">
       <div class="col-6">
         <div class="col-12">
-          <h1>Username</h1>
+          <h1><?php echo $_SESSION['valid_user']; ?></h1>
           <h2>Address</h2>
         </div>
       </div>

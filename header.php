@@ -14,14 +14,21 @@
         <div class="col-10">
             <a href="index.php">SBD</a>
         </div>
-        <div class="col-2">
-            <?php
-                if (isset($_SESSION['valid_user']))
-              	echo "<a class=\"logout\"  href=\"logout.php\">Sign out</a>";
-                else
-              	echo "<a class=\"login\" href=\"login.php\">Log In</a>";
-            ?>
-            <!-- <a href="login.php" class="login">Log In/Register</a> -->
+        <div class="col-1">
+          <?php
+          if(isset($_SESSION['valid_user'])) {
+            echo "<a class=\"login\"  href=\"member.php\">Profile</a>";
+          }
+          ?>
+        </div>
+        <div class="col-1">
+          <?php
+          if(isset($_SESSION['valid_user'])) {
+            echo "<a class=\"login\"  href=\"logout.php\">Log Out</a>";
+          } else {
+            echo "<a class=\"login\"  href=\"login.php\">Log In</a>";
+          }
+          ?>
         </div>
     </div>
 </nav>
@@ -29,5 +36,5 @@
 <script>
     if ( window.history.replaceState ) {
         window.history.replaceState( null, null, window.location.href );
-    }   
+    }
 </script>

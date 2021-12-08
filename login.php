@@ -23,12 +23,13 @@ if (!isset($_POST['login_btn'])) {
   if($stmt->fetch() && password_verify($password,$pass2_hash)) {
       $_SESSION['valid_user'] = $usernameID;
       $callback_url = "index.php";
+
       if (isset($_SESSION['callback_url']))
         $callback_url = $_SESSION['callback_url'];
       //switch back to non-secure http
       redirect_to($callback_url);
   }
-  else $errorMessage = "Incorrect, try again. Or sign up";
+  else $errorMessage = "Incorrect username or password.";
 }
 ?>
 
