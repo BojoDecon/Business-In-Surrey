@@ -16,7 +16,7 @@
         </div>
         <div class="col-2">
             <?php
-                $connection = @mysqli_connect("localhost", "root", "", "business_in_surrey");
+                //$connection = @mysqli_connect("localhost", "root", "", "business_in_surrey");
                 if (isset($_SESSION['valid_user']))
               	echo "<a class=\"logout\"  href=\"logout.php\">Sign out</a>";
                 else
