@@ -157,6 +157,7 @@ select {
     background: #F9FAF9;
     padding: 2rem;
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .business-cell h2 {
