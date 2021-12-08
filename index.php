@@ -40,7 +40,7 @@ no_SSL();
 		<div class="container">
 			<div class="col-2"></div>
 			<div class="col-8">
-				<form action="index.php" method="post" class="container">
+				<form action="results.php" method="post" class="container">
 					<input type="text" name="search_input" id="search_input" class="col-9" placeholder="Enter keywords. i.e. &quot;pizza&quot;" value="<?php if(isset($_POST['search_input'])) echo $_POST['search_input'] ?>">
 					<input type="submit" name="search_btn" value="Discover" class="col-3">
 					<a href="#" class="col-4 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
@@ -105,7 +105,7 @@ no_SSL();
 					echo "</h3>";
 				}
 				echo "<h3>" . $row["postalCode"] . "</h3>";
-				echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['road'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
+				echo "<form method=\"post\" action=\"business.php\"><input type=\"hidden\" name=\"businessName\" value=\"" . $row['businessName'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
 				echo "</div>";
 			}
 
@@ -118,7 +118,7 @@ no_SSL();
 					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
 					if(isset($_POST["button" . $i])) {
 						echo " class=\"active\"";
-					}
+					} 
 					echo ">";
 				}
 				echo "</form>";
