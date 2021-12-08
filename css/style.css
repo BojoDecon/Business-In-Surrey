@@ -139,19 +139,13 @@ select {
     column-gap: 2rem;
 }
 
-.business-grid input[type=button] {
+.business-grid input {
     width: auto !important;
 }
 
-.parent {
-    position: relative;
-}
-
 .horizontal-centre {
-    display: inline-block;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
+    margin: auto;
+    margin-bottom: 1rem;
 }
 
 .business-grid h3 {

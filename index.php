@@ -5,31 +5,6 @@ no_SSL();
 ?>
 
 <script>
-	function serviceFocused() {
-		var service = document.getElementById("service");
-		service.classList.add("active");
-		var nearby = document.getElementById("nearby");
-		nearby.classList.remove("active");
-		document.getElementById("search_input").placeholder = "Service - input keywords. i.e. \"pizza\"";
-
-		var advSettingsShow = document.getElementById("advanced-settings-show");
-  		advSettingsShow.classList.remove("hidden");
-	}
-
-	function nearbyFocused() {
-		var service = document.getElementById("service");
-		service.classList.remove("active");
-		var nearby = document.getElementById("nearby");
-		nearby.classList.add("active");
-		var advSettings = document.getElementById("advanced-settings");
-		document.getElementById("search_input").placeholder = "Nearby - input address.";
-
-		var advSettings = document.getElementById("advanced-settings");
-  		advSettings.classList.add("hidden");
-  		var advSettingsShow = document.getElementById("advanced-settings-show");
-  		advSettingsShow.classList.add("hidden");
-	}
-
 	function showHidden() {
 		var advSettings = document.getElementById("advanced-settings");
   		advSettings.classList.remove("hidden");
@@ -66,12 +41,9 @@ no_SSL();
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form action="index.php" method="post" class="container">
-					<input type="button" value="Service" id="service" onfocus="serviceFocused()" autofocus>
-					<input type="button" value="Nearby" id="nearby" onfocus="nearbyFocused()">
-					<div class="col-10"></div>
-					<input type="text" name="search_input" id="search_input" class="col-10" placholder="" value="<?php if(isset($_POST['search_input'])) echo $_POST['search_input'] ?>">
-					<input type="submit" name="search_btn" value="Discover" class="col-2">
-					<a href="#" class="col-3 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
+					<input type="text" name="search_input" id="search_input" class="col-9" placeholder="Enter keywords. i.e. &quot;pizza&quot;" value="<?php if(isset($_POST['search_input'])) echo $_POST['search_input'] ?>">
+					<input type="submit" name="search_btn" value="Discover" class="col-3">
+					<a href="#" class="col-4 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
 					<div class="hidden col-12 container gapped" id="advanced-settings">
 						<label class="col-3 advanced">Town Centre Code</label>
 						<label class="col-3 advanced">Road</label>
@@ -94,7 +66,64 @@ no_SSL();
 	</div>
 
 	<div class="business-grid container">
+		<h2 class="col-12">Our database</h2> 
 		<?php
+			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021";
+
+			$allResult = $db->query($allQuery);
+
+			$paginationQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021";
+
+			if(isset($_POST['button1'])) {
+				$paginationQuery .= " LIMIT 20";
+			} else if(isset($_POST['button2'])) {
+				$paginationQuery .= " LIMIT 20,20";
+			} else if(isset($_POST['button3'])) {
+				$paginationQuery .= " LIMIT 40,20";
+			} else if(isset($_POST['button4'])) {
+				$paginationQuery .= " LIMIT 60,20";
+			} else if(isset($_POST['button5'])) {
+				$paginationQuery .= " LIMIT 80,20";
+			} else {
+				$paginationQuery .= " LIMIT 20";
+			}
+
+			$paginationResult = $db->query($paginationQuery);
+
+			while($row = $paginationResult->fetch_assoc()) {
+				echo "<div class=\"business-cell col-5\">";
+				echo "<h2>" . $row["businessName"] . "</h2>";
+				if(!empty($row["houseNumber"])) {
+					echo "<h3>" . $row["houseNumber"] . " - ";
+				} else {
+					echo "<h3>";
+				}
+				echo $row["road"];
+				if(!empty($row["unit"])) {
+					echo ", #" . $row["unit"] . "</h3>";
+				} else {
+					echo "</h3>";
+				}
+				echo "<h3>" . $row["postalCode"] . "</h3>";
+				echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['road'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
+				echo "</div>";
+			}
+
+			$pageCount = @$allResult->num_rows;
+
+			if($pageCount != 0) {
+				echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
+				for($i = 1; $i <= $pageCount/20; $i++) {
+					
+					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
+					if(isset($_POST["button" . $i])) {
+						echo " class=\"active\"";
+					}
+					echo ">";
+				}
+				echo "</form>";
+			}
+
 			if(isset($_POST['search_btn'])) {
 				echo "<h2 class=\"col-12\">Results</h2>";
 				if(empty($_POST['search_input'])) {
