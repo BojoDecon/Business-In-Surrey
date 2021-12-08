@@ -124,48 +124,45 @@ no_SSL();
 				echo "</form>";
 			}
 
-			if(isset($_POST['search_btn'])) {
-				echo "<h2 class=\"col-12\">Results</h2>";
-				if(empty($_POST['search_input'])) {
-					echo "<p class=\"col-12\">No results found.</p>";
-				} else {
-					echo "<h3 class=\"col-12\">for \"" . $_POST['search_input'] . "\"</h3>";
-					$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
+			// if(isset($_POST['search_btn'])) {
+			// 	echo "<h2 class=\"col-12\">Results</h2>";
+			// 	if(empty($_POST['search_input'])) {
+			// 		echo "<p class=\"col-12\">No results found.</p>";
+			// 	} else {
+			// 		echo "<h3 class=\"col-12\">for \"" . $_POST['search_input'] . "\"</h3>";
+			// 		$query = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 WHERE business_licences_2021.businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\"";
 
-					$result = $db->query($query);
+			// 		$result = $db->query($query);
 
-					while($row = $result->fetch_assoc()) {
-						echo "<div class=\"business-cell col-5\">";
-						echo "<h2>" . $row["businessName"] . "</h2>";
-						if(!empty($row["houseNumber"])) {
-							echo "<h3>" . $row["houseNumber"] . " - ";
-						} else {
-							echo "<h3>";
-						}
-						echo $row["road"];
-						if(!empty($row["unit"])) {
-							echo ", #" . $row["unit"] . "</h3>";
-						} else {
-							echo "</h3>";
-						}
-						echo "<h3>" . $row["postalCode"] . "</h3>";
-						echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['road'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
-						echo "</div>";
-					}
+			// 		while($row = $result->fetch_assoc()) {
+			// 			echo "<div class=\"business-cell col-5\">";
+			// 			echo "<h2>" . $row["businessName"] . "</h2>";
+			// 			if(!empty($row["houseNumber"])) {
+			// 				echo "<h3>" . $row["houseNumber"] . " - ";
+			// 			} else {
+			// 				echo "<h3>";
+			// 			}
+			// 			echo $row["road"];
+			// 			if(!empty($row["unit"])) {
+			// 				echo ", #" . $row["unit"] . "</h3>";
+			// 			} else {
+			// 				echo "</h3>";
+			// 			}
+			// 			echo "<h3>" . $row["postalCode"] . "</h3>";
+			// 			echo "<form method=\"post\" action=\"results.php\"><input type=\"hidden\" name=\"ID\" value=\"" . $row['road'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
+			// 			echo "</div>";
+			// 		}
 
-					$pageCount = @$result->num_rows;
+			// 		$pageCount = @$result->num_rows;
 
-					echo "<div class=\"col-12 parent\"><div class=\"horizontal-centre\">";
-					if($pageCount != 0) {
-						for($i = 1; $i <= $pageCount/20; $i++) {
-							echo "<input type=\"button\" name=\"button" . $i . "\" value=\"".$i."\">";
-						}
-					}
-					echo "</div></div>";
-
-
-				}
-			}
+			// 		echo "<div class=\"col-12 parent\"><div class=\"horizontal-centre\">";
+			// 		if($pageCount != 0) {
+			// 			for($i = 1; $i <= $pageCount/20; $i++) {
+			// 				echo "<input type=\"button\" name=\"button" . $i . "\" value=\"".$i."\">";
+			// 			}
+			// 		}
+			// 	}
+			// }
 		?>
 	</div>
 </main>
