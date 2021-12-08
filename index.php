@@ -68,7 +68,7 @@ no_SSL();
 	<div class="business-grid container">
 		<h2 class="col-12">Our database</h2> 
 		<?php
-			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021";
+			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 LIMIT 200";
 
 			$allResult = $db->query($allQuery);
 
