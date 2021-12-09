@@ -44,16 +44,121 @@ no_SSL();
 					<input type="submit" name="search_btn" value="Discover" class="col-3">
 					<a href="#" class="col-4 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
 					<div class="hidden col-12 container gapped" id="advanced-settings">
-						<label class="col-3 advanced">Town Centre Code</label>
-						<label class="col-3 advanced">Road</label>
-						<div class="col-6"></div>
-						<input list="town-centers" name="town-center" class="col-3">
-						<datalist id="town-centers">
-							<option value="">
+						<label class="col-2 advanced">Unit #</label>
+						<label class="col-2 advanced">House #</label>
+						<label class="col-4 advanced">Road</label>
+						<label class="col-2 advanced">Postal Code</label>
+						<label class="col-2 advanced">Town Centre</label>
+						<input list="unit" name="unit" class="col-2">
+						<datalist id="unit">
+							<?php 
+	                            // query to get order numbers
+	                            $unit_number_query = "SELECT DISTINCT unit FROM business_licences_2021 ORDER BY unit ASC";
+	                            // get table values
+	                            $unit_number_result = mysqli_query($db, $unit_number_query);
+
+	                            // test if there was a query error
+	                            if (!$unit_number_result) {
+	                                die("Database query failed.");
+	                            }
+
+	                            
+	                            //creates an option element for select for each table cell
+	                            while($row= mysqli_fetch_assoc($unit_number_result)) {
+	                            	$err_free_unit = preg_replace("/[a-zA-Z]/", "", $row['unit']);
+	                                echo "<option value=\"" . $err_free_unit . "\">" . $err_free_unit ."</option>";
+	                            }
+
+	                            mysqli_free_result($unit_number_result);
+                        	?>
 						</datalist>
-						<input list="roads" name="road" class="col-3">
+						<input list="house" name="house" class="col-2">
+						<datalist id="house">
+							<?php 
+	                            // query to get order numbers
+	                            $house_number_query = "SELECT DISTINCT houseNumber FROM business_licences_2021 ORDER BY houseNumber ASC";
+	                            // get table values
+	                            $house_number_result = mysqli_query($db, $house_number_query);
+
+	                            // test if there was a query error
+	                            if (!$house_number_result) {
+	                                die("Database query failed.");
+	                            }
+
+	                            
+	                            //creates an option element for select for each table cell
+	                            while($row= mysqli_fetch_assoc($house_number_result)) {
+	                                echo "<option value=\"" . $row["houseNumber"] . "\">" . $row["houseNumber"] ."</option>";
+	                            }
+
+	                            mysqli_free_result($house_number_result);
+                        	?>
+						</datalist>
+						<input list="roads" name="road" class="col-4">
 						<datalist id="roads">
-							<option value="">
+							<?php 
+	                            // query to get order numbers
+	                            $road_query = "SELECT DISTINCT road FROM business_licences_2021 ORDER BY road ASC";
+	                            // get table values
+	                            $road_result = mysqli_query($db, $road_query);
+
+	                            // test if there was a query error
+	                            if (!$road_result) {
+	                                die("Database query failed.");
+	                            }
+
+	                            
+	                            //creates an option element for select for each table cell
+	                            while($row= mysqli_fetch_assoc($road_result)) {
+	                                echo "<option value=\"" . $row["road"] . "\">" . $row["road"] ."</option>";
+	                            }
+
+	                            mysqli_free_result($road_result);
+                        	?>
+						</datalist>
+						<input list="postal-code" name="postal-code" class="col-2">
+						<datalist id="postal-code">
+							<?php 
+	                            // query to get order numbers
+	                            $postal_code_query = "SELECT DISTINCT postalCode FROM business_licences_2021 ORDER BY postalCode ASC";
+	                            // get table values
+	                            $postal_code_result = mysqli_query($db, $postal_code_query);
+
+	                            // test if there was a query error
+	                            if (!$postal_code_result) {
+	                                die("Database query failed.");
+	                            }
+
+	                            
+	                            //creates an option element for select for each table cell
+	                            while($row= mysqli_fetch_assoc($postal_code_result)) {
+	                                echo "<option value=\"" . $row["postalCode"] . "\">" . $row["postalCode"] ."</option>";
+	                            }
+
+	                            mysqli_free_result($postal_code_result);
+                        	?>
+						</datalist>
+						<input list="town-centre" name="town-centre" class="col-2">
+						<datalist id="town-centre">
+							<?php 
+	                            // query to get order numbers
+	                            $town_centre_query = "SELECT DISTINCT townCentre FROM business_licences_2021 ORDER BY townCentre ASC";
+	                            // get table values
+	                            $town_centre_result = mysqli_query($db, $town_centre_query);
+
+	                            // test if there was a query error
+	                            if (!$postal_code_result) {
+	                                die("Database query failed.");
+	                            }
+
+	                            
+	                            //creates an option element for select for each table cell
+	                            while($row= mysqli_fetch_assoc($town_centre_result)) {
+	                                echo "<option value=\"" . $row["townCentre"] . "\">" . $row["townCentre"] ."</option>";
+	                            }
+
+	                            mysqli_free_result($town_centre_result);
+                        	?>
 						</datalist>
 
 						<a href="#" class="col-12 advanced" onclick="hideHidden()" id="advanced-settings-hide">Hide</a>
