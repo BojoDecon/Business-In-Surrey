@@ -11,14 +11,14 @@ require('header.php');
           <h1><?php echo $_SESSION['valid_user']; ?></h1>
 
           <?php
-          $usernameID = $_SESSION['valid_user'];
-
-          $query = "SELECT email from membership WHERE email = '$usernameID'"
-          $result = $db->query($query);
-
-          while ($row = $result->fetch_row()) {
-            echo $row[0];
-          }
+          // $usernameID = $_SESSION['valid_user'];
+          //
+          // $query = "SELECT email from membership WHERE email = '$usernameID'"
+          // $result = $db->query($query);
+          //
+          // while ($row = $result->fetch_row()) {
+          //   echo $row[0];
+          // }
           ?>
         </div>
       </div>
