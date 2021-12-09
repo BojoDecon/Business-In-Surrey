@@ -267,6 +267,42 @@ select {
 
 /* /////////// */
 
+/* Business-Page */
+.business-page {
+  margin-top: 10rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  background-color: #F9FAF9;
+  padding: 2rem;
+}
+
+.business-page h1 {
+  font-size: 1.25rem;
+  color: black;
+}
+
+.business-page h2, h3 {
+  font-size: 0.85rem;
+  color: grey;
+}
+
+.business-page p {
+  font-size: 0.85rem;
+  width: 85%;
+
+  color: black;
+}
+
+/* Comments Section */
+.comments-section {
+  margin-top: 1rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  padding: 2rem;
+}
+
+/* /////////// */
+
 input, textarea {
     border-radius: 4px;
     box-shadow: none;
@@ -290,10 +326,4 @@ input[type="text"], textarea, select {
 input:focus, textarea:focus, select:focus {
     outline: none;
     border: 2px solid #69e;
-}
-
-/* Results Page */
-
-.business-details {
-
 }
