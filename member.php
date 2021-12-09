@@ -9,7 +9,17 @@ require('header.php');
       <div class="col-6">
         <div class="col-12">
           <h1><?php echo $_SESSION['valid_user']; ?></h1>
-          <h2>Address</h2>
+
+          <?php
+          $usernameID = $_SESSION['valid_user'];
+
+          $query = "SELECT email from membership WHERE email = '$usernameID'"
+          $result = $db->query($query);
+
+          while ($row = $result->fetch_row()) {
+            echo $row[0];
+          }
+          ?>
         </div>
       </div>
       <div class="col-6">

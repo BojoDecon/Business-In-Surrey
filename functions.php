@@ -8,6 +8,10 @@ function is_logged_in() {
 	return isset($_SESSION['valid_user']);
 }
 
+if (!empty($_SESSION['valid_user'])) {
+	$active_user = $_SESSION['valid_user'];
+}
+
 // BOOKMARKS
 function bookmarks($bName) {
 	global $db;

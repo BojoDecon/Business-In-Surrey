@@ -33,10 +33,12 @@ no_SSL();
 						echo "</div>";
 					}
 
-				} else {
-					echo "No results found.";
-				}
-			?>
+				} else { ?>
+					<div class="col-6">
+						<br><br><br><br><br><br><br>
+						<h1>No results found.</h1>
+					</div>
+				<?php } ?>
 		</div>
 	</div>
 </main>
