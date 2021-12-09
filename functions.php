@@ -3,13 +3,25 @@
 session_start();
 $db = connect('localhost', 'root', '', 'business_in_surrey');
 
-// if(!empty($_SESSION['valid_user']))  {
-//     $current_user = $_SESSION['valid_user'];
-// }
-
+// IF USER IS LOGGED IN
 function is_logged_in() {
 	return isset($_SESSION['valid_user']);
 }
+
+// BOOKMARKS
+function bookmarks($bName) {
+	global $db;
+	if (isset($_SESSION['valid_user'])) {
+		$query = "SELECT COUNT(*) FROM bookmarks WHERE businessName=? AND usernameID=?";
+
+		$result = $db->prepare($query);
+		$result->bind_param('ss', $bName, $_SESSION['valid_user']);
+		$result->execute();
+		$result->bind_result($counter);
+		return ($result->fetch() && $counter > 0);
+	} return false;
+}
+
 
 // SECURITY
 function no_SSL() {

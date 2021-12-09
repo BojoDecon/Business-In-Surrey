@@ -104,14 +104,14 @@ no_SSL();
 					echo "</h3>";
 				}
 				echo "<h3>" . $row["postalCode"] . "</h3>";
-				echo "<form method=\"post\" action=\"business.php\"><input type=\"hidden\" name=\"businessName\" value=\"" . $row['businessName'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
+				echo "<form method=\"get\" action=\"business.php\"><input type=\"hidden\" name=\"businessName\" value=\"" . $row['businessName'] . "\"><input type=\"submit\" value=\"View Now\"></form>";
 				echo "</div>";
 			}
 
 			$pageCount = @$allResult->num_rows;
 
 			if($pageCount != 0) {
-				echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
+				echo "<form action=\"index.php\" method=\"get\" class=\"col-12 horizontal-centre\">";
 				for($i = 1; $i <= $pageCount/20; $i++) {
 
 					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
