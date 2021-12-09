@@ -37,12 +37,23 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 			if ($result->fetch()) {
 			?>
 			<div class="col-6">
-				<div class="col-12">
-					<?php echo "<h1>$name</h1>"; ?>
-				</div>
-				<div class="col-12">
-					<?php echo "<h3>$road, $pCode</h3>"; ?>
-				</div>
+				<?php 
+					echo "<h1>$name</h1>";
+
+					echo "<h3>$road";
+					if(!empty($unit)) {
+						echo ", #" . $unit;
+					}
+
+					echo "</h3>";
+						
+					echo "<h3>$pCode</h3>"; 
+
+					echo "<br>";
+
+					echo "<h3>$pOrs</h3>"; 
+				?>
+
 				<br><br><br>
 				<div class="col-12">
 					<p>A beautiful business within Surrey. Nullam bibendum sed justo sodales faucibus.

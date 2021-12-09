@@ -286,6 +286,10 @@ select {
   color: grey;
 }
 
+.business-page h3 {
+    margin: 0;
+}
+
 .business-page p {
   font-size: 0.85rem;
   width: 85%;
