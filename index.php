@@ -40,7 +40,7 @@ no_SSL();
 			<div class="col-2"></div>
 			<div class="col-8">
 				<form action="results.php" method="post" class="container">
-					<input type="text" name="search_input" id="search_input" class="col-9" placeholder="Enter keywords. i.e. &quot;pizza&quot;" value="<?php if(isset($_POST['search_input'])) echo $_POST['search_input'] ?>">
+					<input type="text" name="search_input" class="col-9" placeholder="Enter keywords. i.e. &quot;pizza&quot;">
 					<input type="submit" name="search_btn" value="Discover" class="col-3">
 					<a href="#" class="col-4 advanced" onclick="showHidden()" id="advanced-settings-show">Advanced Search Settings</a>
 					<div class="hidden col-12 container gapped" id="advanced-settings">
@@ -172,11 +172,11 @@ no_SSL();
 	<div class="business-grid container">
 		<h2 class="col-12">Our database</h2>
 		<?php
-			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021 LIMIT 200";
+			$allQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021";
 
 			$allResult = $db->query($allQuery);
 
-			$paginationQuery = "SELECT business_licences_2021.ID, business_licences_2021.businessName, business_licences_2021.productsOrServices, business_licences_2021.unit, business_licences_2021.houseNumber, business_licences_2021.road, business_licences_2021.postalCode FROM business_licences_2021";
+			$paginationQuery = $allQuery;
 
 			if(isset($_POST['button1'])) {
 				$paginationQuery .= " LIMIT 20";
@@ -216,7 +216,7 @@ no_SSL();
 			$pageCount = @$allResult->num_rows;
 
 			if($pageCount != 0) {
-				echo "<form action=\"index.php\" method=\"get\" class=\"col-12 horizontal-centre\">";
+				echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
 				for($i = 1; $i <= $pageCount/20; $i++) {
 
 					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";

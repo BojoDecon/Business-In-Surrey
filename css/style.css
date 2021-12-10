@@ -305,6 +305,14 @@ select {
   padding: 2rem;
 }
 
+/* ///////// */
+
+/* Register-Page */
+
+.results input {
+    width: auto;
+}
+
 /* /////////// */
 
 input, textarea {

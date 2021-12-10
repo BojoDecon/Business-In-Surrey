@@ -5,7 +5,7 @@ no_SSL();
 ?>
 
 <main>
-	<div class="business-details">
+	<div class="results">
 		<div class="container">
 			<?php
 				echo "<h2 class=\"col-12\">Results for \"" . $_POST['search_input'] . "\"</h2>";
@@ -59,7 +59,25 @@ no_SSL();
 						$query .= "townCentre=\"" . $_POST['town-centre'] . "\""; 
 					}
 
-					$result = $db->query($query);
+					$allResult = $db->query($query);
+
+					$paginationQuery = $query;
+
+					if(isset($_POST['button1'])) {
+						$paginationQuery .= " LIMIT 20";
+					} else if(isset($_POST['button2'])) {
+						$paginationQuery .= " LIMIT 20,20";
+					} else if(isset($_POST['button3'])) {
+						$paginationQuery .= " LIMIT 40,20";
+					} else if(isset($_POST['button4'])) {
+						$paginationQuery .= " LIMIT 60,20";
+					} else if(isset($_POST['button5'])) {
+						$paginationQuery .= " LIMIT 80,20";
+					} else {
+						$paginationQuery .= " LIMIT 20";
+					}
+
+					$result = $db->query($paginationQuery);
 
 					$rowCount = @$result->num_rows;
 
@@ -84,6 +102,22 @@ no_SSL();
 						}
 					} else {
 						echo "<h2 class=\"col-12\">No Results</h2>";
+					}
+
+					$pageCount = @$allResult->num_rows;
+
+					if($pageCount != 0) {
+						echo "<form action=\"results.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
+						echo "<input type=\"text\" name=\"search_input\" class=\"hidden\" value=\"" . $_POST['search_input'] . "\">";
+						for($i = 1; $i <= $pageCount/20; $i++) {
+
+							echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
+							if(isset($_POST["button" . $i])) {
+								echo " class=\"active\"";
+							}
+							echo ">";
+						}
+						echo "</form>";
 					}
 				}
 			?>
