@@ -215,18 +215,17 @@ no_SSL();
 
 			$pageCount = @$allResult->num_rows;
 
-			if($pageCount != 0) {
-				echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
-				for($i = 1; $i <= $pageCount/20; $i++) {
 
-					echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
-					if(isset($_POST["button" . $i])) {
-						echo " class=\"active\"";
-					}
-					echo ">";
+			echo "<form action=\"index.php\" method=\"post\" class=\"col-12 horizontal-centre\">";
+			for($i = 1; $i <= $pageCount/20; $i++) {
+
+				echo "<input type=\"submit\" name=\"button" . $i . "\" value=\"".$i."\"";
+				if(isset($_POST["button" . $i])) {
+					echo " class=\"active\"";
 				}
-				echo "</form>";
+				echo ">";
 			}
+			echo "</form>";
 		?>
 	</div>
 </main>

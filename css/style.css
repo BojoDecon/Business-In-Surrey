@@ -299,18 +299,24 @@ select {
 
 /* Comments Section */
 .comments-section {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   margin-right: 30rem;
   margin-left: 30rem;
   padding: 2rem;
 }
 
-/* ///////// */
+.comment-input {
+  margin-top: 1rem;
+  margin-right: 30rem;
+  margin-left: 30rem;
+  padding: 0.5rem;
+  background-color: #F9FAF9;
+}
 
-/* Register-Page */
+/* Comments Section */
 
 .results input {
-    width: auto;
+    width:  auto;
 }
 
 /* /////////// */
