@@ -37,7 +37,7 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 			if ($result->fetch()) {
 			?>
 			<div class="col-6">
-				<?php 
+				<?php
 					echo "<h1>$name</h1>";
 
 					echo "<h3>$road";
@@ -46,12 +46,12 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 					}
 
 					echo "</h3>";
-						
-					echo "<h3>$pCode</h3>"; 
+
+					echo "<h3>$pCode</h3>";
 
 					echo "<br>";
 
-					echo "<h3>$pOrs</h3>"; 
+					echo "<h3>$pOrs</h3>";
 				?>
 
 				<br><br><br>
@@ -69,21 +69,21 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 					// BOOKMARK FEATURE
 					$result->free_result();
 
-					@$message = trim($_GET['message']);
-
-					if (!is_logged_in() || !bookmarks($bName)) {
+					if (is_logged_in() || bookmarks($bName)) {
 						echo "<form action=\"addbookmark.php\" method=\"post\">\n";
-						echo "<input type=\"hidden\" name=\"buisnessName\" value=$bName>\n";
+						echo "<input type=\"hidden\" name=\"businessName\" value=$bName>\n";
 						echo "<input type=\"submit\" value=\"Bookmark\">\n";
 						echo "</form>\n";
-					} else if (is_logged_in()) {
-						echo "TEST.";
 					}
 					?>
 				</div>
 			</div>
 		</div>
 	 <?php } ?>
+	</div>
+
+	<div class="comment-input">
+		<input type="text" name="comment" placeholder="Write a comment">
 	</div>
 
 	<div class="comments-section">

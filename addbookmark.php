@@ -19,5 +19,5 @@ if (!bookmarks($businessName)) {
   $result->execute();
 }
 
-//redirect_to("business.php?businessName=$businessName");
+redirect_to("index.php");
 ?>
