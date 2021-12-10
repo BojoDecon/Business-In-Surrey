@@ -34,8 +34,6 @@ no_SSL();
             while ($row = $result->fetch_row()) {
               echo "<li>";
             	format_model_name_as_link($row[0],"business.php");
-              echo " ";
-            	format_watchlist_action_link($row[0],"Delete","deletebookmark.php");
             	echo "</li>\n";
             }
           ?>
