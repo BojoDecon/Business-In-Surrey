@@ -25,16 +25,14 @@ no_SSL();
           $result = $db->query($query);
 
           function format_model_name_as_link($bNameID, $URL) {
-          	echo "<a href=\"$URL?businessName=$bNameID\">$bNameID</a>";
+          	echo "<a href=\"$URL?businessName=$bNameID\">$bNameID</a>\n";
           	}
           function format_watchlist_action_link($bNameID, $URL) {
-          	echo "<a href=\"$URL?businessName=$bNameID\">$bNameIDe</a>";
+          	echo "<a href=\"$URL?businessName=$bNameID\">$bNameIDe</a>\n";
           	}
 
             while ($row = $result->fetch_row()) {
-              echo "<li>";
             	format_model_name_as_link($row[0],"business.php");
-            	echo "</li>\n";
             }
           ?>
         </div>

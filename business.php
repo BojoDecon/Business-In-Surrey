@@ -69,7 +69,7 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 					// BOOKMARK FEATURE
 					$result->free_result();
 
-					if (is_logged_in() || bookmarks($bName)) {
+					if (is_logged_in() && !bookmarks($bName)) {
 						echo "<form action=\"addbookmark.php\" method=\"post\">\n";
 						echo "<input type=\"hidden\" name=\"businessName\" value='$bName'>\n";
 						echo "<input type=\"submit\" value=\"Bookmark\">\n";
