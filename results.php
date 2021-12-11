@@ -1,10 +1,14 @@
+<!-- header php -->
 <?php
-require('header.php');
+// the code set up with sessions and sql databases
 include('functions.php');
+// the visual banner
+require('header.php');
 no_SSL();
 ?>
 
 <main>
+	<!-- wrapper class results -->
 	<div class="results">
 		<div class="container">
 			<?php
