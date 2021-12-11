@@ -8,10 +8,13 @@ no_SSL();
 	<div class="results">
 		<div class="container">
 			<?php
-				echo "<h2 class=\"col-12\">Results for \"" . $_POST['search_input'] . "\"</h2>";
+				echo "<div class=\"col-12\">";
+				echo "<h2>Results for \"" . $_POST['search_input'] . "\"</h2>";
+				echo "<a href=\"index.php\">Return to search</a>";
+				echo "</div>";
 
 				if(empty($_POST['search_input']) && empty($_POST['unit']) && empty($_POST['house']) && empty($_POST['road']) && empty($_POST['postal-code']) && empty($_POST['town-centre'])) {
-
+					echo "<h2 class=\"col-12\">No Results</h2>";
 				} else {
 					$query = "SELECT businessName, productsOrServices, unit, houseNumber, road, postalCode FROM business_licences_2021 WHERE ";
 
