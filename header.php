@@ -15,6 +15,7 @@
             <a href="index.php">SBD</a>
         </div>
         <div class="col-1">
+          <!-- IF USER IS LOGGED IN SHOW PROFILE -->
           <?php
           if(isset($_SESSION['valid_user'])) {
             echo "<a class=\"login\"  href=\"member.php\">Profile</a>";
@@ -22,6 +23,7 @@
           ?>
         </div>
         <div class="col-1">
+          <!-- IF USER IS LOGGED IN CHANGE LOG IN TO LOG OUT -->
           <?php
           if(isset($_SESSION['valid_user'])) {
             echo "<a class=\"login\"  href=\"logout.php\">Log Out</a>";

@@ -6,8 +6,10 @@ require('header.php');
 include('functions.php');
 require_SSL();
 
+// RETRIEVE VALUE FROM REGISTER BUTTON
 if (isset($_POST['register_btn'])) {
 
+// SAVE FOLLOWING VALUES OF USERNAMEID, EMAIL, AND PASSWORD. AND ENCRYPT PASSWORD INTO DB
   $usernameID = !empty($_POST["usernameID"]) ? trim($_POST["usernameID"]) : "";
   $email = !empty($_POST["email"]) ? trim($_POST["email"]) : "";
   $password = !empty($_POST["password"]) ? $_POST["password"] : "";

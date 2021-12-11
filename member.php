@@ -15,6 +15,8 @@ no_SSL();
       <div class="col-6">
         <div class="col-12">
           <h1>Bookmarks:</h1>
+          <!-- SHOW BOOKMARKS DEPENDING ON SPECIFIC USER SESSION -->
+          <!-- FORMAT BOOKMARKS AS LINK -> BACK TO THE BUSINESS PAGE -->
           <?php
           $usernameID = $_SESSION['valid_user'];
           if (isset($_SESSION['callback_url']) && $_SESSION['callback_url'] == 'member.php') {

@@ -4,11 +4,13 @@ include('functions.php');
 require_SSL();
 ?>
 
+<!-- RETRIEVE VALUE FROM LOGIN BUTTON -->
 <?php
 if (!isset($_POST['login_btn'])) {
   $usernameID = $pass = "";
 
 } else {
+  // TO RETRIEVE PASSWORD, EMAIL, AND USERNAMEID AND AS WELL AS RETRIEVE HASHED PASSWORD
   $usernameID = !empty($_POST["usernameID"]) ? trim($_POST["usernameID"]) : "";
   $password = !empty($_POST["password"]) ? trim($_POST["password"]) : "";
 
@@ -29,6 +31,8 @@ if (!isset($_POST['login_btn'])) {
       //switch back to non-secure http
       redirect_to($callback_url);
   }
+
+  // IF FAIL -> THEN SHOW ERROR MESSAGE
   else $errorMessage = "Incorrect username or password.";
 }
 ?>

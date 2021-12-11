@@ -8,6 +8,7 @@ function is_logged_in() {
 	return isset($_SESSION['valid_user']);
 }
 
+// IF THERE IS A VALID USER THEN ACTIVE USER IS EQUAL TO THE SESSION
 if (!empty($_SESSION['valid_user'])) {
 	$active_user = $_SESSION['valid_user'];
 }
