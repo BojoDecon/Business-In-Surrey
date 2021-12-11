@@ -13,19 +13,25 @@ no_SSL();
 		<div class="container">
 			<?php
 				echo "<div class=\"col-12\">";
+				// echos the search input on the header to remind the user what they inputed
 				echo "<h2>Results for \"" . $_POST['search_input'] . "\"</h2>";
+				//inline link to return back to the home page/search bar
 				echo "<a href=\"index.php\">Return to search</a>";
 				echo "</div>";
 
+				// checks for if no input was given at all on the search functionality
 				if(empty($_POST['search_input']) && empty($_POST['unit']) && empty($_POST['house']) && empty($_POST['road']) && empty($_POST['postal-code']) && empty($_POST['town-centre'])) {
 					echo "<h2 class=\"col-12\">No Results</h2>";
 				} else {
+					// basic query string
 					$query = "SELECT businessName, productsOrServices, unit, houseNumber, road, postalCode FROM business_licences_2021 WHERE ";
 
+					// check for search input and uses it as a condition for the base query
 					if(!empty($_POST['search_input'])) {
 						$query .= "(businessName LIKE \"%" . $_POST['search_input'] . "%\" || business_licences_2021.productsOrServices LIKE \"%" . $_POST['search_input'] . "%\")";
 					}
 
+					// in the if statement below, the conditions connected by || checks if any of the previous form fields have been filed out. If that is true and the following form field, unit in the case, is filled out this means there are exisiting conditions. Therefor a " && " is required to add the next condition properly. This is all repeated for every form field.
 					if(!empty($_POST['search_input']) && !empty($_POST['unit'])) {
 						$query .= " && ";
 					}
@@ -68,6 +74,7 @@ no_SSL();
 
 					$allResult = $db->query($query);
 
+					// pagination is the same concept as done on index.php
 					$paginationQuery = $query;
 
 					if(isset($_POST['button1'])) {
