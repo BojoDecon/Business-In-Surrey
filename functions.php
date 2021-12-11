@@ -26,7 +26,6 @@ function bookmarks($bName) {
 	} return false;
 }
 
-
 // SECURITY
 function no_SSL() {
 	if(isset($_SERVER['HTTPS']) &&  $_SERVER['HTTPS']== "on") {

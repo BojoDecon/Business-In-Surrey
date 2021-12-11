@@ -81,16 +81,6 @@ $result->bind_result($id, $name, $pOrs, $unit, $hNum, $road, $pCode, $phone, $tC
 		</div>
 	 <?php } ?>
 	</div>
-
-	<div class="comment-input">
-		<input type="text" name="comment" placeholder="Write a comment">
-	</div>
-
-	<div class="comments-section">
-		<div class="col-12">
-			<h1>Comments:</h1>
-		</div>
-	</div>
 </main>
 
 <?php
